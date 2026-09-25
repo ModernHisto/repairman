@@ -25,11 +25,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)) 
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  /* base: 'https://ModernHisto.github.io/Business-ard/', Путь ломает подгрузку некоторых элеметнов из public
-  build: {
+  base: '/repairman/',
+  /* build: {
     outDir: 'dist'
   } */
 })
