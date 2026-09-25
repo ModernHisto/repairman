@@ -1,0 +1,19 @@
+@use "variables";
+
+@use "vuetify/settings" with (
+  $grid-breakpoints: (
+    "xs": variables.$xs,
+    "sm": variables.$sm,
+    "md": variables.$md,
+    "lg": variables.$lg,
+  ),
+  $container-max-widths: (
+    "xs": variables.$container-max-width,
+    "sm": variables.$container-max-width,
+    "md": variables.$container-max-width,
+    "lg": variables.$container-max-width,
+    "xl": variables.$container-max-width,
+    "xxl": variables.$container-max-width,
+  ),
+  $body-font-family: variables.$default-font-family,
+);

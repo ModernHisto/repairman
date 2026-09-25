@@ -1,0 +1,35 @@
+@use './variables';
+@use './mixins';
+
+/* Анимация перехода между страницами */
+.vertical-slide-enter-active,
+.vertical-slide-leave-active {
+  transition: all 0.5s ease;
+}
+
+/* Новая страница: появляется из нижней позиции */
+.vertical-slide-enter-from {
+  transform: translateY(100%);
+}
+.vertical-slide-enter-to {
+  transform: translateY(0);
+}
+
+/* Старая страница: уезжает вверх */
+.vertical-slide-leave-from {
+  transform: translateY(0);
+}
+.vertical-slide-leave-to {
+  transform: translateY(-100%);
+}
+
+/* Fade, анимация смены фона*/
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.8s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}

@@ -1,0 +1,60 @@
+@use "fonts";
+@use "mixins";
+@use "variables";
+
+body {
+  color: variables.$white;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  @include mixins.transition();
+  color: inherit;
+
+  &:active {
+    filter: drop-shadow(0 0 1px variables.$green);
+    color: variables.$green !important;
+  }
+  
+  @include mixins.up(variables.$md) {
+    &:hover, svg:hover {
+      filter: drop-shadow(0 0 0.5px variables.$green);
+      color: variables.$light-green;
+    }
+  }
+}
+
+.v-container {
+  display: flex;
+  justify-content: center;
+  padding: 8rem 4rem 4rem 4rem;
+
+  @include mixins.down(variables.$lg) {
+    padding: 3rem 0.5rem;
+  }
+}
+
+.glass-effect {
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 5px 5px 7px -1px rgba(0, 0, 0, 0.192), inset 7px 7px 13px -18px rgba(255, 255, 255, 0.54) !important;
+  border: 1px solid variables.$white1c;
+  border-radius: 1rem;
+  background-color: variables.$main-components;
+}
+
+.scroll-container {
+  overflow: auto;
+  height: 100%;
+  max-width: 100%;
+  padding-right: 0.5rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: variables.$green rgba(0, 0, 0, 0);
+
+  @include mixins.down(variables.$lg) {
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE и Edge
+  }
+}

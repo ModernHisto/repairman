@@ -1,0 +1,31 @@
+/* Colors */
+$black: #000000;
+$main-components: rgba(0, 0, 0, 0.09);
+$lightened-dark: #282828;
+$lightened-dark2: #292929;
+$white: #ffffff;
+$white1c: #ffffff1c;
+$translucent-white: #ffffff85;
+$green: #66fd0f;
+$light-green: #affd82;
+$neon: #75fcad;
+$glow: #75fcad65;
+
+/* z-indexes */
+$z-index-bg: 0;
+$z-index-content: 1;
+$z-index-top: 2;
+
+/* fonts */
+$default-font-family: 'SpaceGrotesk', Tahoma, Geneva, Verdana, sans-serif;
+
+/* Media breakpoints */
+$xs: 0;
+$sm: 576px;
+$md: 1023px;
+$lg: 1439px;
+$xl: 1919px;
+$xxl: 2560px;
+
+/* Container */
+$container-max-width: 100%;

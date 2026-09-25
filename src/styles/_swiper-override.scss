@@ -1,0 +1,35 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'functions' as *;
+
+.swiper {
+  &-wrapper {
+    box-sizing: border-box !important;
+  }
+
+  &-pagination {
+    position: relative !important;
+    z-index: $z-index-content;
+    bottom: 0 !important;
+    top: 0 !important;
+    line-height: 0 !important;
+
+    &-bullet {
+      width: px2vw(14, $xs) !important;
+      height: px2vw(14, $xs) !important;
+      margin: 0 px2vw(5, $xs) !important;
+      background-color: $black !important;
+      border-radius: 0 !important;
+      
+      @include up($lg) {
+        width: px2vw(14, $lg) !important;
+        height: px2vw(14, $lg) !important;
+        margin: 0 px2vw(5, $lg) !important;
+      }
+
+      &-active {
+        background-color: $black !important;
+      }
+    }
+  }
+}

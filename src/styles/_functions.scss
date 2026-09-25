@@ -1,0 +1,39 @@
+@use 'sass:meta';
+@use 'sass:math';
+@use 'variables';
+
+@function strip-unit($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function px2vw($value, $breakpoint) {
+  $value: strip-unit($value);
+
+  @if $breakpoint == variables.$xs {
+    @return calc($value / 360 * 100vw);
+  } @else if $breakpoint == variables.$lg {
+    @return calc($value / 1440 * 100vw);
+  } @else if $breakpoint == variables.$xxl {
+    @return calc($value / 1920 * 100vw);
+  } @else {
+    @error "Unknown breakpoint #{$breakpoint}";
+  }
+}
+
+@function vw2px($value, $breakpoint) {
+  $value: strip-unit($value);
+
+  @if $breakpoint == variables.$xs {
+    @return calc($value * 360px / 100);
+  } @else if $breakpoint == variables.$lg {
+    @return calc($value * 1440px / 100);
+  } @else if $breakpoint == variables.$xxl {
+    @return calc($value * 1920px / 100);
+  } @else {
+    @error "Unknown breakpoint #{$breakpoint}";
+  }
+}
