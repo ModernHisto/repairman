@@ -1,0 +1,16 @@
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA-роутинг: все запросы к несуществующим страницам отдают index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Прокси: запросы к /api/* уходят в Netlify Function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
