@@ -1,8 +1,6 @@
 <script setup>
 import { ref, reactive } from 'vue';
 
-const WORKER_URL = 'https://telegram-proxy.repairman.workers.dev'
-
 const formRef = ref(null)
 const isValid = ref(false)
 const isLoading = ref(false)
@@ -44,7 +42,7 @@ ${form.description}
   `.trim()
 
    try {
-    const response = await fetch(WORKER_URL, {
+    const response = await fetch("/api/send-feedback", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
