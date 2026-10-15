@@ -1,5 +1,5 @@
 // netlify/functions/send-feedback.mjs
-import type { Context } from "@netlify/functions";
+import { Context } from "@netlify/functions";
 
 // Получаем URL сайта из переменных окружения для CORS
 const ALLOWED_ORIGIN = process.env.SITE_URL?.replace(/\/$/, "") ?? "";
@@ -11,7 +11,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
-export default async (req: Request, context: Context) => {
+export default async (req, context) => {
   // Обработка preflight-запроса
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: corsHeaders });
@@ -65,7 +65,7 @@ export default async (req: Request, context: Context) => {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error:", error);
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
